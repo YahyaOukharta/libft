@@ -6,13 +6,13 @@
 /*   By: youkhart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 17:04:24 by youkhart          #+#    #+#             */
-/*   Updated: 2019/10/11 18:33:58 by youkhart         ###   ########.fr       */
+/*   Updated: 2019/10/11 22:18:01 by youkhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	while(*s)
+	while (*s)
 	{
 		ft_putchar_fd(*s, fd);
 		s++;

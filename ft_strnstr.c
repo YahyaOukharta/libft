@@ -6,7 +6,7 @@
 /*   By: youkhart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 13:34:55 by youkhart          #+#    #+#             */
-/*   Updated: 2019/10/09 15:36:33 by youkhart         ###   ########.fr       */
+/*   Updated: 2019/10/11 23:51:42 by youkhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,4 @@ char	*ft_strnstr(char *s1, char *s2, unsigned int n)
 		i++;
 	}
 	return (0);
-}
-
-int main(int argc, char **argv)
-{
-	printf("%s\n",ft_strnstr(argv[1],argv[2],atoi(argv[3])));
-	printf("%s\n",strnstr(argv[1],argv[2],atoi(argv[3])));
 }

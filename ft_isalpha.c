@@ -6,7 +6,7 @@
 /*   By: youkhart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 11:31:23 by youkhart          #+#    #+#             */
-/*   Updated: 2019/10/09 11:39:51 by youkhart         ###   ########.fr       */
+/*   Updated: 2019/10/12 00:06:47 by youkhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,4 @@ int	ft_isalpha(int c)
 	if (c > 96 && c < 123)
 		return (2);
 	return (0);
-}
-
-int main()
-{
-	printf("%d",ft_isalpha('z'));
-	printf("%d",ft_isalpha('Z'));
-	printf("%d",ft_isalpha('4'));
 }

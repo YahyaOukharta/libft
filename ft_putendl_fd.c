@@ -6,12 +6,12 @@
 /*   By: youkhart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 17:08:10 by youkhart          #+#    #+#             */
-/*   Updated: 2019/10/11 17:09:36 by youkhart         ###   ########.fr       */
+/*   Updated: 2019/10/11 22:19:34 by youkhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	ft_putstr_fd(s,fd);
-	ft_putchar_fd('\n',fd);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

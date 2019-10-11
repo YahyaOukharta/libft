@@ -6,18 +6,18 @@
 /*   By: youkhart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 13:41:37 by youkhart          #+#    #+#             */
-/*   Updated: 2019/10/11 19:03:37 by youkhart         ###   ########.fr       */
+/*   Updated: 2019/10/11 23:35:28 by youkhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	count_digits(long long n)
+static int	count_digits(long long n)
 {
-	int res;
+	int	res;
 
 	if (n == 0)
 		return (1);
 	res = 0;
-	while(n > 0)
+	while (n > 0)
 	{
 		n /= 10;
 		res++;
@@ -25,14 +25,13 @@ int	count_digits(long long n)
 	return (res);
 }
 
-char	*ft_itoa(int nbr)
+char		*ft_itoa(int nbr)
 {
-	long long n;
-	char	*result;
-	int negative;
-	int num_digits;
-	int i;
-		
+	long long	n;
+	char		*result;
+	int			negative;
+	int			i;
+
 	n = nbr;
 	negative = 0;
 	if (nbr < 0)
@@ -40,26 +39,17 @@ char	*ft_itoa(int nbr)
 		n = (long)nbr * -1;
 		negative = 1;
 	}
-	num_digits = count_digits(n);
-	result = (char *)malloc(sizeof(char) * (negative + num_digits + 1));
-	if(!result)
+	result = (char *)malloc(sizeof(char) * (negative + count_digits(n) + 1));
+	if (!result)
 		return (0);
-	if(negative)
+	if (negative)
 		result[0] = '-';
-	i = num_digits;
+	i = count_digits(n);
 	result[i + negative] = '\0';
-	i--;
-	while(i >= negative - 1)
+	while (--i >= negative - 1)
 	{
 		result[i + negative] = n % 10 + '0';
 		n /= 10;
-		i--;
 	}
 	return (result);
 }
-/*
-int main(int argc, char **argv)
-{
-	printf("%s\n",ft_itoa(atoi(argv[1])));
-}
-*/
