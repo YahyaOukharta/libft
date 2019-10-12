@@ -6,7 +6,7 @@
 /*   By: youkhart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 23:05:29 by youkhart          #+#    #+#             */
-/*   Updated: 2019/10/11 23:21:25 by youkhart         ###   ########.fr       */
+/*   Updated: 2019/10/12 21:38:08 by youkhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static int	count_words(const char *s, char c)
 	int i;
 
 	i = 0;
-	count = 1;
+	count = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] != c && (s[i + 1] == c || !s[i + 1]))
 			count++;
 		i++;
 	}
@@ -59,13 +59,11 @@ char		**ft_split(const char *str, char c)
 	j = 0;
 	while (i < num_words)
 	{
-		if (str[j] == c)
-			word_len = 0;
-		else
-			word_len = get_word_len(str, j, c);
-		tab[i] = (char *)malloc(sizeof(char) * (word_len + 1));
-		ft_strlcpy(tab[i], &str[j], word_len + 1);
-		j += word_len + 1;
+		while (str[j] == c)
+			j++;
+		word_len = get_word_len(str, j, c);
+		tab[i] = ft_substr(str, j, word_len);
+		j += word_len;
 		i++;
 	}
 	tab[i] = 0;
