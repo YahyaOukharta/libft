@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstprint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkhart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/12 00:03:05 by youkhart          #+#    #+#             */
-/*   Updated: 2019/10/12 13:20:13 by youkhart         ###   ########.fr       */
+/*   Created: 2019/10/13 17:47:02 by youkhart          #+#    #+#             */
+/*   Updated: 2019/10/14 00:37:02 by youkhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	*ft_memchr(const void *ptr, int c, unsigned int n)
+void	ft_lstprint(t_list	**lst)
 {
-	unsigned char	*p;
-	unsigned int	i;
+	t_list *elem;
 
-	i = 0;
-	p = (unsigned char *)ptr;
-	while (i < n)
+	elem = *lst;
+	while(elem != NULL)
 	{
-		if (p[i] == c)
-			return ((void *)&p[i]);
-		i++;
+		printf("----------------\n");
+		printf("\033[1;35m");	/* set color */
+		printf(" %p :\n",elem);
+		printf("\033[0m");	/* reset to default */
+		printf("\033[1;31m \tContent \033[0m : %s\n",elem->content);
+		printf("\033[1;32m \tNext \033[0m    :\033[1;35m %p \033[0m \n",elem->next);
+		printf("----------------\n");
+		elem = elem->next;
 	}
-	return (0);
 }

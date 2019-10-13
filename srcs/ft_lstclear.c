@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkhart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/12 00:03:05 by youkhart          #+#    #+#             */
-/*   Updated: 2019/10/12 13:20:13 by youkhart         ###   ########.fr       */
+/*   Created: 2019/10/14 00:16:21 by youkhart          #+#    #+#             */
+/*   Updated: 2019/10/14 00:39:01 by youkhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	*ft_memchr(const void *ptr, int c, unsigned int n)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	unsigned char	*p;
-	unsigned int	i;
-
-	i = 0;
-	p = (unsigned char *)ptr;
-	while (i < n)
+	t_list 	*elem;
+	t_list	*next;
+	elem = *lst;
+	
+	while(elem != NULL)
 	{
-		if (p[i] == c)
-			return ((void *)&p[i]);
-		i++;
+		next = elem->next;
+		ft_lstdelone(elem, del);
+		elem = next;		
 	}
-	return (0);
 }

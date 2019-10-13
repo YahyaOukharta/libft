@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkhart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/12 00:03:05 by youkhart          #+#    #+#             */
-/*   Updated: 2019/10/12 13:20:13 by youkhart         ###   ########.fr       */
+/*   Created: 2019/10/13 18:17:32 by youkhart          #+#    #+#             */
+/*   Updated: 2019/10/13 20:06:30 by youkhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	*ft_memchr(const void *ptr, int c, unsigned int n)
+void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	unsigned char	*p;
-	unsigned int	i;
-
-	i = 0;
-	p = (unsigned char *)ptr;
-	while (i < n)
-	{
-		if (p[i] == c)
-			return ((void *)&p[i]);
-		i++;
-	}
-	return (0);
+	new->next = *alst;
+   alst = &new;	
 }
