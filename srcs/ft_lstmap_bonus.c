@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkhart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 12:32:00 by youkhart          #+#    #+#             */
-/*   Updated: 2019/10/12 00:00:23 by youkhart         ###   ########.fr       */
+/*   Created: 2019/10/14 20:03:38 by youkhart          #+#    #+#             */
+/*   Updated: 2019/10/14 21:55:40 by youkhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
+#include "../libft_bonus.h"
 
-char	*ft_strchr(const char *str, int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *))
 {
-	char	*s;
-	int		len;
+	t_list	*new;
+	t_list	*head;
 
-	s = (char *)str;
-	len = ft_strlen(str);
-	while (len >= 0)
+	if (lst)
 	{
-		if (*s == (char)c)
-			return (s);
-		s++;
-		len--;
+		new = ft_lstnew(f(lst->content));
+		if (!new)
+			return (0);
+		head = new;
+		while (lst)
+		{
+			lst = lst->next;
+			if (!lst)
+				break ;
+			new->next = ft_lstnew(f(lst->content));
+			new = new->next;
+		}
+		return (head);
 	}
-	return (0);
+	else
+		return (0);
 }

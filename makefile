@@ -12,11 +12,20 @@ ft_isalpha.c ft_memcmp.c ft_putstr_fd.c ft_strlen.c ft_tolower.c \
 ft_isascii.c ft_memcpy.c ft_split.c ft_strmapi.c ft_toupper.c \
 ft_isdigit.c ft_memmove.c ft_strchr.c ft_strncmp.c
 
+_SRCS_BONUS = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c \
+ft_lstclear_bonus.c ft_lstdelone_bonus.c ft_lstiter_bonus.c \
+ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c \
+ft_lstsize_bonus.c
+
 SRCS_DIR = srcs/
 
 SRCS = $(subst ft_,$(SRCS_DIR)ft_,$(_SRCS))
 
+SRCS_BONUS = $(subst ft_,$(SRCS_DIR)ft_,$(_SRCS_BONUS))
+
 OBJS = $(_SRCS:.c=.o)
+
+OBJS_BONUS = $(_SRCS_BONUS:.c=.o)
 
 all: $(NAME)
 
@@ -25,9 +34,14 @@ $(NAME):
 	ar -rc $(NAME) $(OBJS)
 
 clean:
-	rm $(OBJS)
+	rm -f $(OBJS)
+	rm -f $(OBJS_BONUS)
 
 fclean: clean
-	rm $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
+
+bonus: re
+	$(CC) $(CFLAGS) -c $(SRCS_BONUS)
+	ar -rsv $(NAME) $(OBJS_BONUS)

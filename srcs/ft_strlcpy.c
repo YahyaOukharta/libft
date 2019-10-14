@@ -15,13 +15,15 @@
 unsigned int	ft_strlcpy(char *dst, const char *src, unsigned int bufsize)
 {
 	unsigned int	i;
+	unsigned char	*s;
 
+	s = (unsigned char *)src;
 	i = 0;
 	if (bufsize > 0)
 	{
-		while (src[i] && i < bufsize - 1)
+		while (s[i] && i < bufsize - 1)
 		{
-			*dst = src[i];
+			*dst = s[i];
 			i++;
 			dst++;
 		}
