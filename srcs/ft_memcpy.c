@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	d = dest;
 	s = (unsigned char *)src;
 	i = 0;
-	while (i < n && (s || d))/* if only one of the params are null it enters the loop and crashes */
+	while (i < n && (s || d))
 	{
 		d[i] = s[i];
 		i++;

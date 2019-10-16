@@ -12,11 +12,11 @@
 
 #include "../libft.h"
 
-static int		trimmed_len(const char *src, const char *set)
+static size_t	trimmed_len(const char *src, const char *set)
 {
-	int len;
-	int srclen;
-	int i;
+	size_t len;
+	size_t srclen;
+	size_t i;
 
 	i = 0;
 	len = 0;
@@ -27,7 +27,7 @@ static int		trimmed_len(const char *src, const char *set)
 		len++;
 	}
 	i = srclen - 1;
-	while (i >= 0 && ft_strchr(set, src[i]))
+	while ((int)i > 0 && ft_strchr(set, src[i]))
 	{
 		i--;
 		len++;
@@ -37,11 +37,12 @@ static int		trimmed_len(const char *src, const char *set)
 
 char			*ft_strtrim(const char *str, const char *set)
 {
-	int		i;
+	size_t	i;
 	char	*result;
-	int		final_len;
+	size_t	final_len;
 
 	final_len = trimmed_len(str, set);
+	final_len = ((int)final_len < 0 ? 0 : final_len);
 	result = (char *)malloc(sizeof(char) * (final_len + 1));
 	if (!result)
 		return (0);

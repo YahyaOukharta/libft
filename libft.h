@@ -31,7 +31,7 @@ void				*ft_memccpy(void *d, const void *s, int c, size_t n);
 void				*ft_memmove(void *d, const void *s, size_t count);
 void				*ft_memchr(const void *ptr, int c, size_t n);
 int					ft_memcmp(const void *p1, const void *p2, size_t n);
-int					ft_strlen(const char *str);
+size_t				ft_strlen(const char *str);
 char				*ft_strchr(const char *str, int c);
 char				*ft_strrchr(const char *str, int c);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);

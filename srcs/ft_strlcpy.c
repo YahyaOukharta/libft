@@ -21,7 +21,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t bufsize)
 	i = 0;
 	if (bufsize > 0)
 	{
-		while (s[i] && i < bufsize - 1)
+		while ((s[i] || !src) && i < bufsize - 1)
 		{
 			*dst = s[i];
 			i++;
