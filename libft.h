@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <string.h>
 
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
@@ -23,25 +24,25 @@ int					ft_isdigit(int c);
 int					ft_isprint(int c);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
-void				*ft_memset(void *ptr, int value, unsigned int n);
+void				*ft_memset(void *ptr, int value, size_t n);
 void				ft_bzero(void *ptr, int n);
-void				*ft_memcpy(void *dest, const void *src, unsigned int n);
-void				*ft_memccpy(void *d, const void *s, int c, unsigned int n);
-void				*ft_memmove(void *d, const void *s, unsigned int count);
-void				*ft_memchr(const void *ptr, int c, unsigned int n);
-int					ft_memcmp(const void *p1, const void *p2, unsigned int n);
+void				*ft_memcpy(void *dest, const void *src, size_t n);
+void				*ft_memccpy(void *d, const void *s, int c, size_t n);
+void				*ft_memmove(void *d, const void *s, size_t count);
+void				*ft_memchr(const void *ptr, int c, size_t n);
+int					ft_memcmp(const void *p1, const void *p2, size_t n);
 int					ft_strlen(const char *str);
 char				*ft_strchr(const char *str, int c);
 char				*ft_strrchr(const char *str, int c);
-int					ft_strncmp(const char *s1, const char *s2, unsigned int n);
-char				*ft_strnstr(const char *s1, const char *s2, unsigned int n);
-unsigned int		ft_strlcpy(char *dst, const char *src, unsigned int size);
-unsigned int		ft_strlcat(char *dst, const char *src, unsigned int size);
+int					ft_strncmp(const char *s1, const char *s2, size_t n);
+char				*ft_strnstr(const char *s1, const char *s2, size_t n);
+size_t				ft_strlcpy(char *dst, const char *src, size_t size);
+size_t				ft_strlcat(char *dst, const char *src, size_t size);
 char				*ft_strdup(const char *src);
-void				*ft_calloc(unsigned int nitems, unsigned int size);
+void				*ft_calloc(size_t nitems, size_t size);
 int					ft_atoi(const char *str);
 char				*ft_itoa(int nbr);
-char				*ft_substr(const char *s, unsigned int i, unsigned int len);
+char				*ft_substr(const char *s, unsigned int i, size_t len);
 char				*ft_strjoin(const char *s1, const char *s2);
 char				*ft_strtrim(const char *str, const char *set);
 char				**ft_split(const char *str, char c);

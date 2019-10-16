@@ -12,16 +12,16 @@
 
 #include "../libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, unsigned int n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char	*d;
 	unsigned char	*s;
-	unsigned int	i;
+	size_t			i;
 
 	d = dest;
 	s = (unsigned char *)src;
 	i = 0;
-	while (i < n)
+	while (i < n && (s || d))/* if only one of the params are null it enters the loop and crashes */
 	{
 		d[i] = s[i];
 		i++;

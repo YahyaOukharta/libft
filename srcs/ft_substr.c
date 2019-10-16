@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-char	*ft_substr(const char *str, unsigned int start, unsigned int len)
+char	*ft_substr(const char *str, unsigned int start, size_t len)
 {
 	char	*sub;
 

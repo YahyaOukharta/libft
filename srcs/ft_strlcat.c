@@ -12,9 +12,9 @@
 
 #include "../libft.h"
 
-unsigned int	ft_strlcat(char *dst, const char *src, unsigned int bufsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t bufsize)
 {
-	unsigned int	dstlen;
+	size_t	dstlen;
 
 	dstlen = ft_strlen(dst);
 	if (dstlen < bufsize)
