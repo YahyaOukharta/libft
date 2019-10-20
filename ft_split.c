@@ -6,13 +6,13 @@
 /*   By: youkhart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 23:05:29 by youkhart          #+#    #+#             */
-/*   Updated: 2019/10/12 21:38:08 by youkhart         ###   ########.fr       */
+/*   Updated: 2019/10/20 17:08:32 by youkhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_words(const char *s, char c)
+static int	n_words(const char *s, char c)
 {
 	int count;
 	int i;
@@ -43,29 +43,39 @@ static int	get_word_len(const char *str, unsigned int index, char delim)
 	return (len);
 }
 
+char		**free_tab(char **tab, size_t filled_elems)
+{
+	size_t i;
+
+	i = 0;
+	while (i < filled_elems)
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+	return (0);
+}
+
 char		**ft_split(const char *str, char c)
 {
 	char	**tab;
-	int		num_words;
-	int		word_len;
 	int		i;
 	int		j;
 
 	if (str)
 	{
-		num_words = count_words(str, c);
-		tab = (char **)malloc(sizeof(const char *) * (num_words + 1));
-		if (!tab)
+		if (!(tab = (char **)malloc(sizeof(char *) * (n_words(str, c) + 1))))
 			return (0);
 		i = 0;
 		j = 0;
-		while (i < num_words)
+		while (i < n_words(str, c))
 		{
 			while (str[j] == c)
 				j++;
-			word_len = get_word_len(str, j, c);
-			tab[i] = ft_substr(str, j, word_len);
-			j += word_len;
+			if (!(tab[i] = ft_substr(str, j, get_word_len(str, j, c))))
+				return (free_tab(tab, i - 1));
+			j += get_word_len(str, j, c);
 			i++;
 		}
 		tab[i] = 0;

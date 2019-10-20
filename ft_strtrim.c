@@ -6,7 +6,7 @@
 /*   By: youkhart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 20:12:44 by youkhart          #+#    #+#             */
-/*   Updated: 2019/10/11 22:28:59 by youkhart         ###   ########.fr       */
+/*   Updated: 2019/10/20 16:11:56 by youkhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ char			*ft_strtrim(const char *str, const char *set)
 	size_t	i;
 	char	*result;
 	size_t	final_len;
+
 	if (str && set)
-	{	
+	{
 		final_len = trimmed_len(str, set);
 		final_len = ((int)final_len < 0 ? 0 : final_len);
 		result = (char *)malloc(sizeof(char) * (final_len + 1));

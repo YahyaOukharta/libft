@@ -6,7 +6,7 @@
 /*   By: youkhart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:36:56 by youkhart          #+#    #+#             */
-/*   Updated: 2019/10/13 13:58:11 by youkhart         ###   ########.fr       */
+/*   Updated: 2019/10/20 16:11:08 by youkhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int	ft_atoi(const char *str)
 		res = (res * 10) + *str - '0';
 		str++;
 	}
-	if(res * sign > 0 && sign < 0)
+	if (res * sign > 0 && sign < 0)
 		return (0);
-	else if(res * sign < 0 && sign > 0)
+	else if (res * sign < 0 && sign > 0)
 		return (-1);
 	else
 		return (res * sign);

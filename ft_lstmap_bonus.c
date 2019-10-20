@@ -6,7 +6,7 @@
 /*   By: youkhart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 19:31:33 by youkhart          #+#    #+#             */
-/*   Updated: 2019/10/16 19:31:35 by youkhart         ###   ########.fr       */
+/*   Updated: 2019/10/20 18:05:51 by youkhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			lst = lst->next;
 			if (!lst)
 				break ;
-			if(!(new->next = ft_lstnew(f(lst->content))))
+			if (!(new->next = ft_lstnew(f(lst->content))))
 			{
-				ft_lstclear(&head,del);
+				ft_lstclear(&head, del);
 				return (0);
 			}
 			new = new->next;

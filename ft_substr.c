@@ -6,7 +6,7 @@
 /*   By: youkhart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 19:21:55 by youkhart          #+#    #+#             */
-/*   Updated: 2019/10/12 21:36:12 by youkhart         ###   ########.fr       */
+/*   Updated: 2019/10/20 17:11:21 by youkhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ char	*ft_substr(const char *str, unsigned int start, size_t len)
 {
 	char	*sub;
 
-	if (str){
+	if (str)
+	{
+		if (ft_strlen(str) < start)
+			len = 0;
 		sub = (char *)malloc(len + 1);
 		if (!sub)
 			return (0);

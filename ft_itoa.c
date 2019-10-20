@@ -6,7 +6,7 @@
 /*   By: youkhart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 13:41:37 by youkhart          #+#    #+#             */
-/*   Updated: 2019/10/14 23:46:27 by youkhart         ###   ########.fr       */
+/*   Updated: 2019/10/20 18:04:33 by youkhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,49 @@ static int	count_digits(long long n)
 	return (res);
 }
 
+char		*ft_strrev(char *str)
+{
+	int		i;
+	int		j;
+	char	tmp;
+
+	if (str)
+	{
+		i = 0;
+		j = ft_strlen(str) - 1;
+		while (i < j)
+		{
+			tmp = str[i];
+			str[i] = str[j];
+			str[j] = tmp;
+			i++;
+			j--;
+		}
+	}
+	return (str);
+}
+
+void		ft_store(char *s, long n, size_t ndigits)
+{
+	size_t i;
+
+	i = 0;
+	while (i < ndigits)
+	{
+		s[i] = n % 10 + '0';
+		n /= 10;
+		i++;
+	}
+	ft_strrev(s);
+}
+
 char		*ft_itoa(int nbr)
 {
 	long long	n;
 	char		*result;
 	int			negative;
 	int			i;
+	int			n_digits;
 
 	n = nbr;
 	negative = 0;
@@ -41,17 +78,14 @@ char		*ft_itoa(int nbr)
 		n = (long)nbr * -1;
 		negative = 1;
 	}
-	result = (char *)malloc(sizeof(char) * (negative + count_digits(n) + 1));
+	n_digits = count_digits(n);
+	result = (char *)malloc(sizeof(char) * (negative + n_digits + 1));
 	if (!result)
 		return (0);
 	if (negative)
 		result[0] = '-';
-	i = count_digits(n);
-	result[i + negative] = '\0';
-	while (--i >= negative - 1)
-	{
-		result[i + negative] = n % 10 + '0';
-		n /= 10;
-	}
+	i = negative;
+	result[n_digits + negative] = '\0';
+	ft_store(result + negative, n, n_digits);
 	return (result);
 }

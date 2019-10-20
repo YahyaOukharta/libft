@@ -6,7 +6,7 @@
 /*   By: youkhart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 17:04:24 by youkhart          #+#    #+#             */
-/*   Updated: 2019/10/14 23:48:37 by youkhart         ###   ########.fr       */
+/*   Updated: 2019/10/20 17:12:23 by youkhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if(s)
+	if (s)
 		while (*s)
 		{
 			ft_putchar_fd(*s, fd);

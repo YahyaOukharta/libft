@@ -6,7 +6,7 @@
 /*   By: youkhart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 16:40:10 by youkhart          #+#    #+#             */
-/*   Updated: 2019/10/14 23:45:57 by youkhart         ###   ########.fr       */
+/*   Updated: 2019/10/20 17:11:37 by youkhart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strmapi(const char *str, char (*f)(unsigned int, char))
 {
 	char			*result;
 	unsigned int	i;
-	
+
 	if (str)
 	{
 		result = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
