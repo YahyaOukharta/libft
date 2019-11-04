@@ -68,7 +68,6 @@ char		*ft_itoa(int nbr)
 	long long	n;
 	char		*result;
 	int			negative;
-	int			i;
 	int			n_digits;
 
 	n = nbr;
@@ -84,7 +83,6 @@ char		*ft_itoa(int nbr)
 		return (0);
 	if (negative)
 		result[0] = '-';
-	i = negative;
 	result[n_digits + negative] = '\0';
 	ft_store(result + negative, n, n_digits);
 	return (result);

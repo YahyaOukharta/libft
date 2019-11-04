@@ -15,14 +15,11 @@
 void	ft_putnbr_fd(int n, int fd)
 {
 	long long	nbr;
-	int			sign;
 
 	nbr = n;
-	sign = 1;
 	if (n < 0)
 	{
 		nbr = -(long)nbr;
-		sign = -1;
 		ft_putchar_fd('-', fd);
 	}
 	if (nbr > 9)
